@@ -45,7 +45,7 @@ HTML;
 	 *
 	 */
 	public function testConstruct() {
-		$this->setExpectedException('Essence\Exception');
+		$this->setExpectedException('Exception');
 		$Native = new Native('');
 	}
 

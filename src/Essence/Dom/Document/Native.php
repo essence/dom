@@ -8,8 +8,8 @@ namespace Essence\Dom\Document;
 
 use Essence\Dom\Document;
 use Essence\Dom\Tag\Native as Tag;
-use Essence\Exception;
 use DOMDocument;
+use Exception;
 use Closure;
 
 
