@@ -17,7 +17,7 @@
 	"homepage": "http://github.com/essence/dom",
 	"autoload": {
 		"psr-4": {
-			"Essence\\": "src/Essence"
+			"Essence\\Dom\\": "src"
 		}
 	}
 }
