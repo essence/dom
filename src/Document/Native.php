@@ -48,6 +48,8 @@ class Native extends Document {
 	 *	and not the new HTML5 form:
 	 *		<meta charset="utf-8">
 	 *	with the result that parsed strings can have funny characters.
+	 * 
+	 * 	We should set default charset if no charset is present. Generally it should be UTF-8
 	 *
 	 *	@see http://www.glenscott.co.uk/blog/html5-character-encodings-and-domdocument-loadhtml-and-loadhtmlfile
 	 *	@see https://github.com/glenscott/dom-document-charset/blob/master/DOMDocumentCharset.php
@@ -59,6 +61,15 @@ class Native extends Document {
 				'<meta http-equiv="Content-Type" content="text/html; charset=$1"',
 				$this->_html
 			);
+		}
+
+ 		if (stripos($this->_html, 'charset=')===false)
+		{
+			$this->_html = preg_replace(
+					'~(<head[^>]*>)~',
+					'$1<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"',
+					$this->_html
+			);	
 		}
 	}
 
